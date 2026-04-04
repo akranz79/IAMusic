@@ -212,7 +212,7 @@ const PERSONAS_DATA = [
         categoria: "",
         descricao: "",
         avatar: "./assets/avatars/suttlin.jpeg",
-        videoDestaque: "./assets/videos/suttlin.mp4",
+        videoDestaque: "./assets/videos/suttin.mp4",
         banner: "./assets/banners/suttlin1.jpeg",
         musicas: [
             { 
