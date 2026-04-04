@@ -1,0 +1,199 @@
+/* 1. RESET E VARIÁVEIS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-bg: #111;
+  --netflix-red: #e50914;
+  --text-color: #fff;
+  --transition-speed: 450ms;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: var(--main-bg);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+/* 2. NAVBAR (Efeito Transparente para Preto) */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+  height: 70px;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.5s ease-in;
+}
+
+.nav__black {
+  background-color: #111;
+}
+
+.nav__logo {
+  color: var(--netflix-red);
+  font-weight: bold;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* 3. HERO SECTION (Banner com Vídeo) */
+.hero {
+  position: relative;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 4%;
+}
+
+.hero__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+/* Overlay para escurecer o vídeo e garantir leitura do texto */
+.hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0,0,0,0.8) 10%, transparent 60%),
+              linear-gradient(to top, var(--main-bg), transparent 40%);
+  z-index: -1;
+}
+
+.hero__title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  max-width: 600px;
+}
+
+.hero__description {
+  font-size: 1.2rem;
+  max-width: 500px;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+}
+
+.hero__button {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  padding: 0.6rem 2rem;
+  font-weight: 700;
+  margin-right: 1rem;
+  background-color: rgba(150, 150, 150, 0.5);
+  color: white;
+  transition: all 0.2s;
+}
+
+.hero__button:hover {
+  background-color: white;
+  color: black;
+}
+
+/* 4. LINHAS E CARROSSEL (The Netflix Look) */
+.row {
+  margin-left: 20px;
+  margin-top: -50px; /* Sobe um pouco para sobrepor o hero */
+  position: relative;
+  z-index: 10;
+}
+
+.row__title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.row__posters {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding: 20px 0;
+  scrollbar-width: none; /* Firefox */
+}
+
+.row__posters::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.row__poster {
+  width: 100%;
+  object-fit: cover;
+  max-height: 180px;
+  margin-right: 12px;
+  border-radius: 4px;
+  transition: transform var(--transition-speed);
+  cursor: pointer;
+}
+
+/* Efeito de destaque no hover */
+.row__poster:hover {
+  transform: scale(1.15);
+  z-index: 20;
+}
+
+/* 5. MODAL (Onde as músicas do Suno aparecem) */
+.modal {
+  display: none; /* Escondido por padrão */
+  position: fixed;
+  z-index: 200;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  overflow-y: auto;
+}
+
+.modal__content {
+  background-color: #181818;
+  margin: 5% auto;
+  padding: 40px;
+  width: 70%;
+  max-width: 800px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.modal__close {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.suno-embed-container {
+  margin-top: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #222;
+  margin-bottom: 15px;
+}
+
+/* 6. RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: 2rem;
+  }
+  .modal__content {
+    width: 95%;
+  }
+}

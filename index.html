@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suno Persona Streaming</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="nav" id="navbar">
+        <div class="nav__logo">SUNOFLIX</div>
+        <div class="nav__links">
+            </div>
+    </nav>
+
+    <header class="hero">
+        <video autoplay muted loop class="hero__video" id="heroVideo">
+            <source src="assets/videos/apresentacao-principal.mp4" type="video/mp4">
+        </video>
+        <div class="hero__overlay"></div>
+        
+        <div class="hero__contents">
+            <h1 class="hero__title" id="heroTitle">Nome do Persona</h1>
+            <p class="hero__description" id="heroDesc">
+                Descrição breve e impactante sobre o estilo musical e a história deste persona gerado por IA.
+            </p>
+            <div class="hero__buttons">
+                <button class="hero__button">Ouvir Agora</button>
+                <button class="hero__button">Mais Informações</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+        <section class="row">
+            <h2 class="row__title">Meus Personas</h2>
+            <div class="row__posters" id="personasRow">
+                </div>
+        </section>
+
+        <section class="row">
+            <h2 class="row__title">Lançamentos Recentes</h2>
+            <div class="row__posters" id="recentesRow">
+                </div>
+        </section>
+
+    </main>
+
+    <div id="personaModal" class="modal">
+        <div class="modal__content">
+            <span class="modal__close" id="closeModal">&times;</span>
+            <div id="modalBody">
+                </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // Pequeno script para mudar a cor da Navbar ao dar scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                nav.classList.add('nav__black');
+            } else {
+                nav.classList.remove('nav__black');
+            }
+        });
+    </script>
+</body>
+</html>
