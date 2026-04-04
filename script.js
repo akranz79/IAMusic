@@ -1,31 +1,60 @@
 /**
- * LÓGICA DO FRONT-END - SUNOFLIX (VERSÃO VÍDEO NO MODAL)
+ * SUNOFLIX - SCRIPT.JS (VERSÃO CONSOLIDADA 2.0)
+ * Foco: Layout Vertical, Scroll Automático e Injeção de Dados
  */
 
+// 1. REFERÊNCIAS DO DOM
 const personasRow = document.getElementById('personasRow');
 const modal = document.getElementById('personaModal');
 const modalBody = document.getElementById('modalBody');
 const closeModal = document.getElementById('closeModal');
 
-// Renderização dos cards no carrossel
+const heroTitle = document.getElementById('heroTitle');
+const heroDesc = document.getElementById('heroDesc');
+const heroVideo = document.getElementById('heroVideo');
+
+// 2. FUNÇÃO: ATUALIZAR O DESTAQUE (HERO)
+function updateHero(persona) {
+    if (!persona) return;
+
+    heroTitle.innerText = persona.nome;
+    heroDesc.innerText = persona.descricao;
+    
+    // Se houver vídeo, atualiza a fonte e dá play
+    if (persona.videoDestaque) {
+        heroVideo.src = persona.videoDestaque;
+        heroVideo.load();
+        // O play() pode falhar se o browser bloquear som, por isso o catch
+        heroVideo.play().catch(() => console.log("Autoplay aguardando interação do usuário."));
+    }
+}
+
+// 3. FUNÇÃO: RENDERIZAR CARDS (LAYOUT 9:16)
 function renderPersonas() {
+    if (!personasRow || !PERSONAS_DATA) return;
+    
     personasRow.innerHTML = '';
+
     PERSONAS_DATA.forEach(persona => {
         const img = document.createElement('img');
         img.src = persona.avatar;
         img.alt = persona.nome;
         img.classList.add('row__poster');
-        img.addEventListener('click', () => openPersonaModal(persona));
+
+        // Ao clicar, abre o modal detalhado
+        img.addEventListener('click', () => {
+            openPersonaModal(persona);
+        });
+
         personasRow.appendChild(img);
     });
 }
 
-// Função Principal: Abre o Modal com Vídeo + Descrição + Músicas
+// 4. FUNÇÃO: ABRIR MODAL (VÍDEO + SUNO)
 function openPersonaModal(persona) {
-    // 1. Gerar os Embeds das músicas do Suno
     const musicasHTML = persona.musicas.map(musica => `
-        <div class="suno-embed-container">
-            <p style="margin: 10px 0; color: #888; font-size: 0.9rem;">Ouvir: ${musica.titulo}</p>
+        <div class="suno-embed-container" style="margin-bottom: 20px;">
+            <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 8px;">Música: ${musica.titulo}</p>
             <iframe 
                 src="https://suno.com/embed/${musica.sunoId}" 
                 width="100%" 
@@ -36,71 +65,62 @@ function openPersonaModal(persona) {
         </div>
     `).join('');
 
-    // 2. Montar o HTML do Modal (Vídeo no topo)
     modalBody.innerHTML = `
-        <div class="modal__video-wrapper" style="margin-bottom: 25px;">
-            <video controls autoplay width="100%" style="border-radius: 8px; border: 1px solid #333; background: #000;">
+        <div class="modal__video-header" style="margin-bottom: 20px;">
+            <video controls autoplay width="100%" style="border-radius: 8px; background: #000;">
                 <source src="${persona.videoDestaque}" type="video/mp4">
-                Seu navegador não suporta a tag de vídeo.
             </video>
         </div>
-        
-        <h1 style="font-size: 2.2rem; margin-bottom: 5px;">${persona.nome}</h1>
-        <p style="color: #e50914; font-weight: bold; margin-bottom: 15px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">
-            ${persona.categoria}
-        </p>
-        
-        <p style="font-size: 1.1rem; line-height: 1.5; color: #ccc; margin-bottom: 30px;">
-            ${persona.descricao}
-        </p>
-
-        <h3 style="border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px;">Canções em Destaque</h3>
-        <div class="modal__music-list">
-            ${musicasHTML}
-        </div>
+        <h1 style="font-size: 2.5rem; margin-bottom: 10px;">${persona.nome}</h1>
+        <p style="color: #e50914; font-weight: bold; text-transform: uppercase; margin-bottom: 15px;">${persona.categoria}</p>
+        <p style="line-height: 1.6; color: #ccc; margin-bottom: 30px;">${persona.descricao}</p>
+        <h3 style="border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px;">Playlist Suno IA</h3>
+        ${musicasHTML}
     `;
 
     modal.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Trava o scroll da página
+    document.body.style.overflow = 'hidden'; // Trava o scroll do fundo
 }
 
-// Fechamento do Modal
-const handleClose = () => {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto'; // Destrava o scroll
-    modalBody.innerHTML = ''; // Crucial: mata o vídeo e os áudios ao fechar
-};
-
-closeModal.onclick = handleClose;
-window.onclick = (event) => { if (event.target == modal) handleClose(); };
-
-
+// 5. FUNÇÃO: SCROLL AUTOMÁTICO
 function setupAutoScroll() {
-    const row = document.getElementById('personasRow');
     let isMouseOver = false;
 
-    // Pausa o scroll quando o usuário coloca o mouse em cima
-    row.onmouseover = () => isMouseOver = true;
-    row.onmouseout = () => isMouseOver = false;
+    personasRow.addEventListener('mouseover', () => isMouseOver = true);
+    personasRow.addEventListener('mouseout', () => isMouseOver = false);
 
     setInterval(() => {
         if (!isMouseOver) {
-            // Se chegou ao fim, volta ao início (loop infinito)
-            if (row.scrollLeft + row.offsetWidth >= row.scrollWidth) {
-                row.scrollTo({ left: 0, behavior: 'smooth' });
+            // Se chegou no fim da linha, volta suavemente ao zero
+            if (personasRow.scrollLeft + personasRow.offsetWidth >= personasRow.scrollWidth - 10) {
+                personasRow.scrollTo({ left: 0, behavior: 'smooth' });
             } else {
-                // Rola 300px para a direita
-                row.scrollBy({ left: 300, behavior: 'smooth' });
+                personasRow.scrollBy({ left: 300, behavior: 'smooth' });
             }
         }
-    }, 5000); // Rola a cada 5 segundos
+    }, 4000); // Rola a cada 4 segundos
 }
 
-// Chame a função dentro do DOMContentLoaded
-document.addEventListener('DOMContentLoaded', () => {
-    renderPersonas();
-    setupAutoScroll(); // Ativa a rolagem automática
-});
+// 6. EVENTOS DE FECHAMENTO
+const closeModalAction = () => {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+    modalBody.innerHTML = ''; // Importante para parar o som dos vídeos/iframes
+};
 
-// Inicialização
-document.addEventListener('DOMContentLoaded', renderPersonas);
+closeModal.onclick = closeModalAction;
+window.onclick = (event) => {
+    if (event.target == modal) closeModalAction();
+};
+
+// 7. INICIALIZAÇÃO AO CARREGAR A PÁGINA
+document.addEventListener('DOMContentLoaded', () => {
+    // Validação de dados
+    if (typeof PERSONAS_DATA !== 'undefined' && PERSONAS_DATA.length > 0) {
+        renderPersonas();
+        updateHero(PERSONAS_DATA[0]); // Carrega o primeiro persona no Hero
+        setupAutoScroll();
+    } else {
+        console.error("Erro crítico: Variável PERSONAS_DATA não encontrada no data.js");
+    }
+});
