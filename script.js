@@ -74,5 +74,33 @@ const handleClose = () => {
 closeModal.onclick = handleClose;
 window.onclick = (event) => { if (event.target == modal) handleClose(); };
 
+
+function setupAutoScroll() {
+    const row = document.getElementById('personasRow');
+    let isMouseOver = false;
+
+    // Pausa o scroll quando o usuário coloca o mouse em cima
+    row.onmouseover = () => isMouseOver = true;
+    row.onmouseout = () => isMouseOver = false;
+
+    setInterval(() => {
+        if (!isMouseOver) {
+            // Se chegou ao fim, volta ao início (loop infinito)
+            if (row.scrollLeft + row.offsetWidth >= row.scrollWidth) {
+                row.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                // Rola 300px para a direita
+                row.scrollBy({ left: 300, behavior: 'smooth' });
+            }
+        }
+    }, 5000); // Rola a cada 5 segundos
+}
+
+// Chame a função dentro do DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+    renderPersonas();
+    setupAutoScroll(); // Ativa a rolagem automática
+});
+
 // Inicialização
 document.addEventListener('DOMContentLoaded', renderPersonas);

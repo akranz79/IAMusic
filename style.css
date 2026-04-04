@@ -111,9 +111,10 @@ body {
 /* 4. LINHAS E CARROSSEL (The Netflix Look) */
 .row {
   margin-left: 20px;
-  margin-top: -50px; /* Sobe um pouco para sobrepor o hero */
-  position: relative;
-  z-index: 10;
+  margin-top: 20px; /* Ajuste para não sobrepor o Hero */
+  margin-bottom: 40px; /* Espaço entre as fileiras */
+  display: flex;
+  flex-direction: column;
 }
 
 .row__title {
@@ -134,18 +135,20 @@ body {
 }
 
 .row__poster {
-  width: 100%;
+  width: 200px;
+  aspect-ratio: 9 / 16;
   object-fit: cover;
-  max-height: 180px;
-  margin-right: 12px;
-  border-radius: 4px;
+  max-height: 310px;
+  margin-right: 15px;
+  border-radius: 8px;
   transition: transform var(--transition-speed);
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 /* Efeito de destaque no hover */
 .row__poster:hover {
-  transform: scale(1.15);
+  transform: scale(1.1);
   z-index: 20;
 }
 
