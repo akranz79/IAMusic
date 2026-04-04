@@ -17,12 +17,52 @@ const PERSONAS_DATA = [
         banner: "./assets/banners/amylin1.jpeg",
         musicas: [
             { 
+                titulo: "Our Song", 
+                sunoId: "e5ef6f53-140e-4b4e-b332-22b9517ede9a" 
+            },  
+            { 
                 titulo: "The Tome and the Thornbush", 
                 sunoId: "5b211eca-a4a0-4788-900b-effd32465628" // Substitua pelo ID real da URL do Suno
             },
             { 
                 titulo: "Our Song", 
-                sunoId: "e5ef6f53-140e-4b4e-b332-22b9517ede9a" 
+                sunoId: "5fb776a3-ba10-4019-9961-192e62ffa817" 
+            },
+                        { 
+                titulo: "", 
+                sunoId: "5cd82ebb-9c77-41bd-b71f-0f853c33c5ab" 
+            },
+            { 
+                titulo: "", 
+                sunoId: "6ded5bbe-db72-4f0f-bf76-a3cf05a2f2d5" 
+            },
+            { 
+                titulo: "", 
+                sunoId: "b598099d-3513-4073-9a58-c599791d437f" 
+            },
+            { 
+                titulo: "", 
+                sunoId: "1f6d3f81-e1ef-4888-9b4d-167189ba0713" 
+            },
+                                    { 
+                titulo: "", 
+                sunoId: "/cf7b3a50-b266-403b-a339-3f73a1403108" 
+            },
+            { 
+                titulo: "", 
+                sunoId: "ae4cec4d-6d41-4ca5-af5e-51c6b2b4f678" 
+            },
+            { 
+                titulo: "", 
+                sunoId: "0a1b39cc-53f6-47c1-b49d-5506f5d44a83" 
+            },
+            { 
+                titulo: "", 
+                sunoId: "50564a04-981e-4809-b8f8-c7add52d7b69" 
+            },
+            { 
+                titulo: "", 
+                sunoId: "d221268f-f62a-4da0-a3c6-dd2f8352819e" 
             }
         ]
     },
