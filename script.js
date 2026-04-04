@@ -1,6 +1,6 @@
 /**
- * SUNOFLIX - SCRIPT.JS (VERSÃO CONSOLIDADA 2.0)
- * Foco: Layout Vertical, Scroll Automático e Injeção de Dados
+ * SUNOFLIX - SCRIPT.JS (VERSÃO PLAYLIST AUTOMÁTICA)
+ * Foco: Troca automática de vídeos e sincronia com o Hero.
  */
 
 // 1. REFERÊNCIAS DO DOM
@@ -13,36 +13,69 @@ const heroTitle = document.getElementById('heroTitle');
 const heroDesc = document.getElementById('heroDesc');
 const heroVideo = document.getElementById('heroVideo');
 
+// Variável de controle para a Playlist
+let currentPersonaIndex = 0;
+
 // 2. FUNÇÃO: ATUALIZAR O DESTAQUE (HERO)
 function updateHero(persona) {
     if (!persona) return;
 
-    heroTitle.innerText = persona.nome;
-    heroDesc.innerText = persona.descricao;
+    // Atualiza os textos com efeito de transição simples
+    heroTitle.style.opacity = 0;
+    heroDesc.style.opacity = 0;
     
-    // Se houver vídeo, atualiza a fonte e dá play
+    setTimeout(() => {
+        heroTitle.innerText = persona.nome;
+        heroDesc.innerText = persona.descricao;
+        heroTitle.style.opacity = 1;
+        heroDesc.style.opacity = 1;
+    }, 500);
+
+    // Atualiza o vídeo de fundo
     if (persona.videoDestaque) {
+        heroVideo.pause();
         heroVideo.src = persona.videoDestaque;
         heroVideo.load();
-        // O play() pode falhar se o browser bloquear som, por isso o catch
-        heroVideo.play().catch(() => console.log("Autoplay aguardando interação do usuário."));
+        
+        // Tenta dar o play (Muted é obrigatório para autoplay no browser)
+        heroVideo.play().catch(() => {
+            console.log("Autoplay bloqueado. O vídeo aguarda interação.");
+        });
     }
 }
 
-// 3. FUNÇÃO: RENDERIZAR CARDS (LAYOUT 9:16)
+// 3. FUNÇÃO: LOGICA DE PRÓXIMO VÍDEO (PLAYLIST)
+function playNextVideo() {
+    currentPersonaIndex++;
+    
+    // Se chegar ao fim da lista, volta para o primeiro
+    if (currentPersonaIndex >= PERSONAS_DATA.length) {
+        currentPersonaIndex = 0;
+    }
+    
+    const nextPersona = PERSONAS_DATA[currentPersonaIndex];
+    updateHero(nextPersona);
+    
+    // Opcional: Faz o scroll do carrossel acompanhar o vídeo atual
+    scrollToActiveCard(currentPersonaIndex);
+}
+
+// 4. FUNÇÃO: RENDERIZAR CARDS (LAYOUT 9:16)
 function renderPersonas() {
     if (!personasRow || !PERSONAS_DATA) return;
     
     personasRow.innerHTML = '';
 
-    PERSONAS_DATA.forEach(persona => {
+    PERSONAS_DATA.forEach((persona, index) => {
         const img = document.createElement('img');
         img.src = persona.avatar;
         img.alt = persona.nome;
         img.classList.add('row__poster');
 
-        // Ao clicar, abre o modal detalhado
+        // Se clicar no card, força a troca do Hero e abre o modal
         img.addEventListener('click', () => {
+            currentPersonaIndex = index;
+            updateHero(persona);
             openPersonaModal(persona);
         });
 
@@ -50,15 +83,14 @@ function renderPersonas() {
     });
 }
 
-// 4. FUNÇÃO: ABRIR MODAL (VÍDEO + SUNO)
+// 5. FUNÇÃO: ABRIR MODAL
 function openPersonaModal(persona) {
     const musicasHTML = persona.musicas.map(musica => `
         <div class="suno-embed-container" style="margin-bottom: 20px;">
             <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 8px;">Música: ${musica.titulo}</p>
             <iframe 
                 src="https://suno.com/embed/${musica.sunoId}" 
-                width="100%" 
-                height="150px" 
+                width="100%" height="150px" 
                 style="border: none; border-radius: 8px;" 
                 allow="autoplay; encrypted-media">
             </iframe>
@@ -79,48 +111,38 @@ function openPersonaModal(persona) {
     `;
 
     modal.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Trava o scroll do fundo
+    document.body.style.overflow = 'hidden';
 }
 
-// 5. FUNÇÃO: SCROLL AUTOMÁTICO
-function setupAutoScroll() {
-    let isMouseOver = false;
-
-    personasRow.addEventListener('mouseover', () => isMouseOver = true);
-    personasRow.addEventListener('mouseout', () => isMouseOver = false);
-
-    setInterval(() => {
-        if (!isMouseOver) {
-            // Se chegou no fim da linha, volta suavemente ao zero
-            if (personasRow.scrollLeft + personasRow.offsetWidth >= personasRow.scrollWidth - 10) {
-                personasRow.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-                personasRow.scrollBy({ left: 300, behavior: 'smooth' });
-            }
-        }
-    }, 4000); // Rola a cada 4 segundos
+// 6. FUNÇÃO: SCROLL SUAVE PARA O CARD ATIVO
+function scrollToActiveCard(index) {
+    const cardWidth = 215; // Largura do card (200px) + margin (15px)
+    personasRow.scrollTo({
+        left: index * cardWidth,
+        behavior: 'smooth'
+    });
 }
 
-// 6. EVENTOS DE FECHAMENTO
+// 7. EVENTOS DE FECHAMENTO
 const closeModalAction = () => {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
-    modalBody.innerHTML = ''; // Importante para parar o som dos vídeos/iframes
+    modalBody.innerHTML = ''; 
 };
 
 closeModal.onclick = closeModalAction;
-window.onclick = (event) => {
-    if (event.target == modal) closeModalAction();
-};
+window.onclick = (event) => { if (event.target == modal) closeModalAction(); };
 
-// 7. INICIALIZAÇÃO AO CARREGAR A PÁGINA
+// 8. INICIALIZAÇÃO E LISTENERS
 document.addEventListener('DOMContentLoaded', () => {
-    // Validação de dados
     if (typeof PERSONAS_DATA !== 'undefined' && PERSONAS_DATA.length > 0) {
         renderPersonas();
-        updateHero(PERSONAS_DATA[0]); // Carrega o primeiro persona no Hero
-        setupAutoScroll();
+        updateHero(PERSONAS_DATA[0]);
+
+        // O SEGREDO: Listener que detecta quando o vídeo do Hero acaba
+        heroVideo.addEventListener('ended', playNextVideo);
+
     } else {
-        console.error("Erro crítico: Variável PERSONAS_DATA não encontrada no data.js");
+        console.error("Erro: PERSONAS_DATA não encontrado.");
     }
 });

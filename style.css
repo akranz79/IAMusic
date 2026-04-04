@@ -63,6 +63,7 @@ body {
   height: 100%;
   object-fit: cover;
   z-index: -2;
+  
 }
 
 /* Overlay para escurecer o vídeo e garantir leitura do texto */
@@ -202,4 +203,9 @@ body {
   .modal__content {
     width: 95%;
   }
+/* Adicione isso ao seu style.css */
+#heroVideo {
+    transition: opacity 0.5s ease-in-out;
+}
+
 }
