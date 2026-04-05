@@ -1,10 +1,11 @@
-/* RESET PADRÃO */
+/* RESET E VARIÁVEIS */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
     --main-bg: #111;
     --netflix-red: #e50914;
     --text-color: #fff;
+    --transition-speed: 450ms;
 }
 
 body {
@@ -14,24 +15,69 @@ body {
     overflow-x: hidden;
 }
 
-/* NAVBAR */
-.nav { position: fixed; top: 0; width: 100%; padding: 20px 4%; z-index: 100; transition: 0.5s; }
+/* NAVBAR - DIREITO SUPERIOR */
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 4%;
+    height: 70px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* ALINHA O LOGO À DIREITA */
+    transition: background-color 0.5s ease;
+}
+
 .nav__black { background-color: #111; }
-.nav__logo { color: var(--netflix-red); font-weight: bold; font-size: 1.8rem; letter-spacing: 2px; }
 
-/* HERO */
-.hero { position: relative; height: 80vh; display: flex; align-items: center; padding-left: 4%; background: #000; overflow: hidden; }
-.hero__video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
-.hero__overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; 
+.nav__logo {
+    color: var(--netflix-red);
+    font-weight: bold;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* HERO SECTION */
+.hero {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    padding-left: 4%;
+    background: #000;
+    overflow: hidden;
+}
+
+.hero__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
     background: linear-gradient(to right, rgba(0,0,0,0.8), transparent), 
-                linear-gradient(to top, #111, transparent); }
-.hero__contents { position: relative; z-index: 2; max-width: 600px; }
-.hero__title { font-size: 3.5rem; margin-bottom: 10px; }
-.hero__description { font-size: 1.1rem; color: #ccc; }
+                linear-gradient(to top, #111, transparent);
+}
 
-/* CARROSSEL NETFLIX (9:16) */
+.hero__contents { position: relative; z-index: 2; max-width: 600px; }
+.hero__title { font-size: 3.5rem; margin-bottom: 10px; transition: opacity 0.5s; }
+.hero__description { font-size: 1.1rem; color: #ccc; line-height: 1.4; }
+
+/* CARROSSEL 9:16 */
 .row { margin-top: -50px; position: relative; z-index: 10; padding-bottom: 40px; }
-.row__title { font-size: 1.4rem; margin-left: 4%; margin-bottom: 10px; }
+.row__title { font-size: 1.4rem; margin-left: 4%; margin-bottom: 15px; }
 .row__navigation { position: relative; display: flex; align-items: center; }
 .row__posters { display: flex; overflow-x: scroll; padding: 20px 4%; scrollbar-width: none; gap: 15px; }
 .row__posters::-webkit-scrollbar { display: none; }
@@ -42,29 +88,99 @@ body {
     object-fit: cover; 
     border-radius: 6px; 
     cursor: pointer; 
-    transition: 0.4s; 
+    transition: var(--transition-speed); 
     flex-shrink: 0; 
 }
 .row__poster:hover { transform: scale(1.1); z-index: 20; }
 
-.nav-btn { position: absolute; width: 50px; height: 100%; background: rgba(0,0,0,0.5); color: #fff; border: none; cursor: pointer; z-index: 30; font-size: 2rem; transition: 0.3s; }
-.nav-btn:hover { background: rgba(0,0,0,0.8); }
+.nav-btn {
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    z-index: 30;
+    font-size: 2rem;
+}
+
 .prev { left: 0; } .next { right: 0; }
 
-/* MODAL PERFIL CIRCULAR */
-.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 200; overflow-y: auto; }
-.modal__content { background: #181818; width: 90%; max-width: 850px; margin: 40px auto; padding: 40px; border-radius: 10px; position: relative; }
-.modal__close { position: absolute; top: 15px; right: 20px; font-size: 2.5rem; cursor: pointer; color: white; }
+/* MODAL PERFIL ARTISTA */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    z-index: 200;
+    overflow-y: auto;
+}
 
-.modal__profile-header { display: flex; align-items: center; gap: 30px; margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 30px; }
-.modal__profile-avatar { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid var(--netflix-red); flex-shrink: 0; }
+.modal__content {
+    background: #181818;
+    width: 90%;
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.modal__close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: white;
+}
+
+.modal__profile-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 30px;
+}
+
+.modal__profile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--netflix-red);
+    flex-shrink: 0;
+}
+
 .modal__profile-info { flex: 1; }
+.modal__profile-category { color: var(--netflix-red); font-weight: bold; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px; }
 .modal__profile-name { font-size: 2.5rem; margin-bottom: 10px; }
 .modal__profile-desc { color: #ccc; line-height: 1.5; margin-bottom: 20px; }
-.modal__video-btn { padding: 10px 20px; background: white; color: black; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; }
 
-/* RESPONSIVIDADE MODAL */
-@media (max-width: 650px) {
-    .modal__profile-header { flex-direction: column; text-align: center; }
-    .modal__profile-avatar { width: 120px; height: 120px; }
+.modal__video-btn {
+    padding: 12px 24px;
+    background: #fff;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal__video-back-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 20;
+    padding: 8px 16px;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    cursor: pointer;
 }
