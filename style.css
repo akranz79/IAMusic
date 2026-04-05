@@ -1,11 +1,12 @@
+/* RESET PADRÃO */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 :root {
     --main-bg: #111;
     --netflix-red: #e50914;
     --text-color: #fff;
-    --card-vertical: 200px;
-    --card-horizontal: 300px;
 }
+
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background-color: var(--main-bg);
@@ -14,56 +15,56 @@ body {
 }
 
 /* NAVBAR */
-.nav { position: fixed; top: 0; width: 100%; padding: 20px 4%; z-index: 100; display: flex; transition: 0.5s; }
+.nav { position: fixed; top: 0; width: 100%; padding: 20px 4%; z-index: 100; transition: 0.5s; }
 .nav__black { background-color: #111; }
 .nav__logo { color: var(--netflix-red); font-weight: bold; font-size: 1.8rem; letter-spacing: 2px; }
 
 /* HERO */
-.hero { position: relative; height: 80vh; display: flex; align-items: center; padding-left: 4%; background: #000; }
-.hero__video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; transition: opacity 1s; }
-.hero__overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: linear-gradient(to right, rgba(0,0,0,0.8), transparent), linear-gradient(to top, #111, transparent); }
+.hero { position: relative; height: 80vh; display: flex; align-items: center; padding-left: 4%; background: #000; overflow: hidden; }
+.hero__video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.hero__overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; 
+    background: linear-gradient(to right, rgba(0,0,0,0.8), transparent), 
+                linear-gradient(to top, #111, transparent); }
 .hero__contents { position: relative; z-index: 2; max-width: 600px; }
-.hero__title { font-size: 3.5rem; margin-bottom: 10px; transition: 0.5s; }
-.hero__description { font-size: 1.1rem; color: #ccc; margin-bottom: 20px; }
-.hero__button { padding: 10px 30px; font-weight: bold; cursor: pointer; border: none; border-radius: 4px; }
+.hero__title { font-size: 3.5rem; margin-bottom: 10px; }
+.hero__description { font-size: 1.1rem; color: #ccc; }
 
-/* ROWS & CAROUSEL */
-.row { margin-top: 20px; position: relative; z-index: 10; }
+/* CARROSSEL NETFLIX (9:16) */
+.row { margin-top: -50px; position: relative; z-index: 10; padding-bottom: 40px; }
 .row__title { font-size: 1.4rem; margin-left: 4%; margin-bottom: 10px; }
-.row__posters { display: flex; overflow-x: scroll; padding: 20px 4%; scrollbar-width: none; }
+.row__navigation { position: relative; display: flex; align-items: center; }
+.row__posters { display: flex; overflow-x: scroll; padding: 20px 4%; scrollbar-width: none; gap: 15px; }
 .row__posters::-webkit-scrollbar { display: none; }
 
-/* CARD PERSONA 9:16 */
 .row__poster { 
-    width: var(--card-vertical); 
+    width: 200px; 
     aspect-ratio: 9/16; 
     object-fit: cover; 
     border-radius: 6px; 
-    margin-right: 15px; 
     cursor: pointer; 
     transition: 0.4s; 
     flex-shrink: 0; 
 }
-.row__poster:hover { transform: scale(1.08); z-index: 20; }
+.row__poster:hover { transform: scale(1.1); z-index: 20; }
 
-/* CARD MÚSICA HORIZONTAL */
-.musica-card { 
-    width: var(--card-horizontal); 
-    flex-shrink: 0; 
-    margin-right: 20px; 
-    background: #181818; 
-    padding: 15px; 
-    border-radius: 8px; 
-    transition: 0.3s; 
-}
-.musica-card:hover { background: #222; transform: translateY(-5px); }
-
-/* NAVEGAÇÃO */
-.row__navigation { position: relative; display: flex; align-items: center; }
-.nav-btn { position: absolute; width: 50px; height: 100%; background: rgba(0,0,0,0.5); color: #fff; border: none; cursor: pointer; z-index: 30; font-size: 2rem; }
+.nav-btn { position: absolute; width: 50px; height: 100%; background: rgba(0,0,0,0.5); color: #fff; border: none; cursor: pointer; z-index: 30; font-size: 2rem; transition: 0.3s; }
+.nav-btn:hover { background: rgba(0,0,0,0.8); }
 .prev { left: 0; } .next { right: 0; }
 
-/* MODAL */
-.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 200; overflow-y: auto; }
-.modal__content { background: #181818; width: 90%; max-width: 800px; margin: 50px auto; padding: 30px; border-radius: 10px; position: relative; }
-.modal__close { position: absolute; top: 15px; right: 20px; font-size: 2rem; cursor: pointer; }
+/* MODAL PERFIL CIRCULAR */
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 200; overflow-y: auto; }
+.modal__content { background: #181818; width: 90%; max-width: 850px; margin: 40px auto; padding: 40px; border-radius: 10px; position: relative; }
+.modal__close { position: absolute; top: 15px; right: 20px; font-size: 2.5rem; cursor: pointer; color: white; }
+
+.modal__profile-header { display: flex; align-items: center; gap: 30px; margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 30px; }
+.modal__profile-avatar { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid var(--netflix-red); flex-shrink: 0; }
+.modal__profile-info { flex: 1; }
+.modal__profile-name { font-size: 2.5rem; margin-bottom: 10px; }
+.modal__profile-desc { color: #ccc; line-height: 1.5; margin-bottom: 20px; }
+.modal__video-btn { padding: 10px 20px; background: white; color: black; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; }
+
+/* RESPONSIVIDADE MODAL */
+@media (max-width: 650px) {
+    .modal__profile-header { flex-direction: column; text-align: center; }
+    .modal__profile-avatar { width: 120px; height: 120px; }
+}

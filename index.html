@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SunoFlix | Personas & Tracks IA</title>
+    <title>SunoFlix | Personas IA</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,28 +13,17 @@
     </nav>
 
     <header class="hero">
-        <video muted class="hero__video" id="heroVideo">
+        <video muted class="hero__video" id="heroVideo" poster="">
             <source src="" type="video/mp4">
         </video>
         <div class="hero__overlay"></div>
         <div class="hero__contents">
             <h1 class="hero__title" id="heroTitle">Carregando...</h1>
-            <p class="hero__description" id="heroDesc">Sincronizando sua biblioteca de IA...</p>
-            <div class="hero__buttons">
-                <button class="hero__button" onclick="document.getElementById('recentesRow').scrollIntoView({behavior:'smooth'})">
-                    Explorar
-                </button>
-            </div>
+            <p class="hero__description" id="heroDesc">Sincronizando biblioteca de IA...</p>
         </div>
     </header>
 
     <main class="main-content">
-        <section class="row">
-            <h2 class="row__title">Últimos Lançamentos (Músicas)</h2>
-            <div class="row__posters musicas-feed" id="musicasRecentesRow">
-                </div>
-        </section>
-
         <section class="row">
             <h2 class="row__title">Meus Personas</h2>
             <div class="row__navigation">
