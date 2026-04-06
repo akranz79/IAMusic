@@ -1,6 +1,5 @@
 /**
- * SUNOFLIX - ENGINE COMPLETA v3.0
- * Corrigido: Formatação e Quebras de Linha
+ * SUNOFLIX - SCRIPT v5.0 (ENGINE DINÂMICA)
  */
 
 const personasRow = document.getElementById('personasRow');
@@ -13,75 +12,58 @@ const heroVideo = document.getElementById('heroVideo');
 let currentIdx = 0;
 let autoTimer;
 
-// 1. RENDERIZAR FEED DE MÚSICAS (LANÇAMENTOS GERAIS)
+// 1. SCROLL DINÂMICO DO CARROSSEL
+function scrollToPersona(index) {
+    if (!personasRow || !personasRow.children.length) return;
+    const cardWidth = personasRow.children[0].offsetWidth;
+    const gap = 20; // Valor definido no CSS (--gap)
+    personasRow.scrollTo({ left: index * (cardWidth + gap), behavior: 'smooth' });
+}
+
+// 2. FEED DE MÚSICAS (PÁGINA PRINCIPAL)
 function renderMusicasFeed() {
     if (!musicasRow || !PERSONAS_DATA) return;
-    
     let allTracks = [];
     PERSONAS_DATA.forEach(p => {
-        if (p.musicas) {
-            p.musicas.forEach(m => allTracks.push({...m, persona: p.nome}));
-        }
+        if (p.musicas) p.musicas.forEach(m => allTracks.push({...m, persona: p.nome}));
     });
-    
     const lastTracks = allTracks.reverse().slice(0, 10);
-    
     musicasRow.innerHTML = lastTracks.map(m => `
-        <div class="musica-card" style="width: 300px; flex-shrink: 0; background: #181818; padding: 15px; border-radius: 12px; transition: 0.3s;">
-            <p style="color:#e50914; font-size:0.7rem; font-weight:bold; text-transform:uppercase; margin-bottom:5px;">${m.persona}</p>
-            <p style="margin-bottom:12px; font-size:0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${m.titulo}</p>
-            <iframe src="https://suno.com/embed/${m.sunoId}" width="100%" height="150px" style="border:none;border-radius:8px;" allow="encrypted-media"></iframe>
+        <div class="audio-card">
+            <p style="color:#e50914; font-size:0.7rem; font-weight:bold; text-transform:uppercase;">${m.persona}</p>
+            <p style="margin-top:5px; font-size:0.9rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${m.titulo}</p>
+            <audio controls preload="none"><source src="${m.arquivo}" type="audio/mpeg"></audio>
         </div>
     `).join('');
 }
 
-// 2. ATUALIZAR O HERO
+// 3. HERO MANAGEMENT
 function updateHero(persona) {
     if (!persona) return;
     const hTitle = document.getElementById('heroTitle');
-    const hDesc = document.getElementById('heroDesc');
-    
     hTitle.style.opacity = 0;
-    hDesc.style.opacity = 0;
+    setTimeout(() => { hTitle.innerText = persona.nome; hTitle.style.opacity = 1; }, 500);
 
-    setTimeout(() => {
-        hTitle.innerText = persona.nome;
-        hTitle.style.opacity = 1;
-    }, 500);
-
-    setTimeout(() => {
-        hDesc.innerText = persona.descricao || persona.descrica;
-        hDesc.style.opacity = 1;
-    }, 600);
-    
     heroVideo.pause();
     heroVideo.poster = persona.banner || persona.avatar;
-    
     if (persona.videoDestaque) {
         heroVideo.src = persona.videoDestaque;
         heroVideo.load();
-        heroVideo.play().catch(() => console.log("Autoplay bloqueado"));
-    } else {
-        heroVideo.src = "";
+        heroVideo.play().catch(() => {});
     }
     resetTimer();
 }
 
 function nextHero() {
-    if (modal && modal.style.display === 'block') return;
+    if (modal.style.display === 'block') return;
     currentIdx = (currentIdx + 1) % PERSONAS_DATA.length;
     updateHero(PERSONAS_DATA[currentIdx]);
-    if (personasRow) {
-        personasRow.scrollTo({ left: currentIdx * 215, behavior: 'smooth' });
-    }
+    scrollToPersona(currentIdx);
 }
 
-function resetTimer() {
-    clearInterval(autoTimer);
-    autoTimer = setInterval(nextHero, 15000);
-}
+function resetTimer() { clearInterval(autoTimer); autoTimer = setInterval(nextHero, 15000); }
 
-// 3. RENDERIZAR CARROSSEL DE PERSONAS
+// 4. RENDER PERSONAS
 function renderPersonas() {
     if (!personasRow) return;
     personasRow.innerHTML = '';
@@ -89,37 +71,34 @@ function renderPersonas() {
         const img = document.createElement('img');
         img.src = p.avatar;
         img.classList.add('row__poster');
-        img.onclick = () => { currentIdx = i; updateHero(p); openModal(p); };
+        img.onclick = () => { currentIdx = i; updateHero(p); openModal(p); scrollToPersona(i); };
         personasRow.appendChild(img);
     });
 }
 
-// 4. MODAL PERFIL ARTISTA
+// 5. MODAL PERFIL ARTISTA
 function openModal(p) {
-    const embeds = p.musicas.map(m => `
-        <div style="margin-bottom:20px;">
-            <p style="color:#888; font-size:0.85rem; margin-bottom:8px;">Track: ${m.titulo}</p>
-            <iframe src="https://suno.com/embed/${m.sunoId}" width="100%" height="150px" style="border:none;border-radius:12px;"></iframe>
+    const playlistHTML = p.musicas.map((m, index) => `
+        <div class="audio-card" style="width:100%; margin-bottom:15px;">
+            <p style="font-size:0.75rem; color:#888;">TRACK ${index + 1}: ${m.titulo}</p>
+            <audio controls><source src="${m.arquivo}" type="audio/mpeg"></audio>
         </div>
     `).join('');
-
-    const videoBtn = p.videoDestaque ? 
-        `<button class="modal__video-btn" onclick="playVideoModal('${p.videoDestaque}', '${p.banner}')">▶ ASSISTIR VÍDEO</button>` : '';
 
     modalBody.innerHTML = `
         <div id="modalMainContent">
             <div class="modal__profile-header">
                 <img src="${p.avatar2 || p.avatar}" class="modal__profile-avatar">
                 <div class="modal__profile-info">
-                    <p class="modal__profile-category">${p.categoria || 'Artista IA'}</p>
+                    <p style="color:#e50914; font-weight:bold; font-size:0.8rem;">${p.categoria || 'ARTISTA IA'}</p>
                     <h1 class="modal__profile-name">${p.nome}</h1>
-                    <p class="modal__profile-desc">${p.descricao || p.descrica}</p>
-                    ${videoBtn}
+                    <p style="color:#ccc; margin-bottom:15px;">${p.descricao}</p>
+                    ${p.videoDestaque ? `<button class="modal__video-btn" onclick="playVideoModal('${p.videoDestaque}', '${p.banner}')">▶ ASSISTIR VÍDEO</button>` : ''}
                 </div>
             </div>
             <div class="modal__playlist">
-                <h3 style="margin-bottom:25px; border-bottom: 1px solid #333; padding-bottom:10px;">PLAYLIST OFICIAL</h3>
-                ${embeds}
+                <h3 style="margin-bottom:20px; border-bottom:1px solid #333; padding-bottom:10px;">PLAYLIST OFICIAL</h3>
+                ${playlistHTML}
             </div>
         </div>
     `;
@@ -132,36 +111,29 @@ window.playVideoModal = function(src, poster) {
     const playlist = main.querySelector('.modal__playlist').outerHTML;
     main.innerHTML = `
         <div style="margin-bottom:30px; position:relative;">
-            <button onclick="openModal(PERSONAS_DATA[currentIdx])" class="modal__video-back-btn">← VOLTAR AO PERFIL</button>
-            <video controls autoplay width="100%" poster="${poster}" style="border-radius:12px; background:#000;">
-                <source src="${src}" type="video/mp4">
-            </video>
+            <button onclick="openModal(PERSONAS_DATA[currentIdx])" style="position:absolute; top:10px; left:10px; z-index:10; background:rgba(0,0,0,0.7); color:white; border:none; padding:8px 15px; border-radius:20px; cursor:pointer;">← VOLTAR</button>
+            <video controls autoplay width="100%" poster="${poster}" style="border-radius:12px; background:#000;"><source src="${src}" type="video/mp4"></video>
         </div>
         ${playlist}
     `;
 };
 
-const fecharModal = () => {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-    modalBody.innerHTML = '';
-};
-
-// 5. INICIALIZAÇÃO
+// 6. INIT
 document.addEventListener('DOMContentLoaded', () => {
-    if (typeof PERSONAS_DATA !== 'undefined' && PERSONAS_DATA.length > 0) {
-        renderMusicasFeed();
-        renderPersonas();
-        updateHero(PERSONAS_DATA[0]);
-        
-        document.getElementById('nextBtn').onclick = nextHero;
-        document.getElementById('prevBtn').onclick = () => {
-            currentIdx = (currentIdx - 1 + PERSONAS_DATA.length) % PERSONAS_DATA.length;
-            updateHero(PERSONAS_DATA[currentIdx]);
-        };
-        
-        heroVideo.onended = nextHero;
-        closeModal.onclick = fecharModal;
-        window.onclick = (e) => { if(e.target == modal) fecharModal(); };
-    }
+    renderMusicasFeed();
+    renderPersonas();
+    if (PERSONAS_DATA.length > 0) updateHero(PERSONAS_DATA[0]);
+    document.getElementById('nextBtn').onclick = nextHero;
+    document.getElementById('prevBtn').onclick = () => {
+        currentIdx = (currentIdx - 1 + PERSONAS_DATA.length) % PERSONAS_DATA.length;
+        updateHero(PERSONAS_DATA[currentIdx]);
+        scrollToPersona(currentIdx);
+    };
+    heroVideo.onended = nextHero;
+    closeModal.onclick = () => { modal.style.display = 'none'; document.body.style.overflow = 'auto'; modalBody.innerHTML = ''; };
+    window.onclick = (e) => { if(e.target == modal) closeModal.onclick(); };
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('navbar');
+        if (window.scrollY > 50) nav.classList.add('nav__black'); else nav.classList.remove('nav__black');
+    });
 });

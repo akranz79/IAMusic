@@ -22,48 +22,8 @@ const PERSONAS_DATA = [
                 sunoId: "e5ef6f53-140e-4b4e-b332-22b9517ede9a" 
             },  
             { 
-                titulo: "The Tome and the Thornbush", 
-                sunoId: "5b211eca-a4a0-4788-900b-effd32465628" // Substitua pelo ID real da URL do Suno
-            },
-            { 
-                titulo: "Our Song", 
-                sunoId: "5fb776a3-ba10-4019-9961-192e62ffa817" 
-            },
-                        { 
                 titulo: "", 
-                sunoId: "5cd82ebb-9c77-41bd-b71f-0f853c33c5ab" 
-            },
-            { 
-                titulo: "", 
-                sunoId: "6ded5bbe-db72-4f0f-bf76-a3cf05a2f2d5" 
-            },
-            { 
-                titulo: "", 
-                sunoId: "b598099d-3513-4073-9a58-c599791d437f" 
-            },
-            { 
-                titulo: "", 
-                sunoId: "1f6d3f81-e1ef-4888-9b4d-167189ba0713" 
-            },
-                                    { 
-                titulo: "", 
-                sunoId: "/cf7b3a50-b266-403b-a339-3f73a1403108" 
-            },
-            { 
-                titulo: "", 
-                sunoId: "ae4cec4d-6d41-4ca5-af5e-51c6b2b4f678" 
-            },
-            { 
-                titulo: "", 
-                sunoId: "0a1b39cc-53f6-47c1-b49d-5506f5d44a83" 
-            },
-            { 
-                titulo: "", 
-                sunoId: "50564a04-981e-4809-b8f8-c7add52d7b69" 
-            },
-            { 
-                titulo: "", 
-                sunoId: "d221268f-f62a-4da0-a3c6-dd2f8352819e" 
+                arquivo: "./assets/musicas/" // Substitua pelo ID real da URL do Suno
             }
         ]
     },
@@ -79,7 +39,11 @@ const PERSONAS_DATA = [
         musicas: [
             { 
                 titulo: "Insensatez", 
-                sunoId: "62d2d537-6abc-4f0d-bc82-9aa3950fa791" 
+                arquivo: "./assets/musicas/01-nat.mp3" // Substitua pelo ID real da URL do Suno
+            },
+            { 
+                titulo: "Hoy te borro", 
+                arquivo: "./assets/musicas/02-nat.mp3" // Substitua pelo ID real da URL do Suno
             }
         ]
     },
@@ -94,8 +58,8 @@ const PERSONAS_DATA = [
         banner: "./assets/banners/foxmine1.jpeg",
         musicas: [
             { 
-                titulo: "Ultima Morada", 
-                sunoId: "8319a712-ccdd-4ad4-b3ff-ce3a982d6dfc" 
+                titulo: "🎵 MARINA E OS BICHINHOS 🎵", 
+                arquivo: "./assets/musicas/01-fox.mp3" // Substitua pelo ID real da URL do Suno
             }
         ]
     },
@@ -111,7 +75,7 @@ const PERSONAS_DATA = [
         musicas: [
             { 
                 titulo: "Baila en la Luna", 
-                sunoId: "481c28b4-77f7-43c1-ba21-7ab8ae36a5c4" 
+                arquivo: "./assets/musicas/01-bad.mp3" // Substitua pelo ID real da URL do Suno
             }
         ]
     },
@@ -126,8 +90,8 @@ const PERSONAS_DATA = [
         banner: "./assets/banners/bonin1.jpeg",
         musicas: [
             { 
-                titulo: "Montains and Spring", 
-                sunoId: "b5814334-bde2-4fec-bfba-0f0a8f485558" 
+                titulo: "", 
+                arquivo: "./assets/musicas/" // Substitua pelo ID real da URL do Suno
             }
         ]
     },{
@@ -141,12 +105,8 @@ const PERSONAS_DATA = [
         banner: "./assets/banners/brett1.jpeg",
         musicas: [
             { 
-                titulo: "A locket in my chest", 
-                sunoId: "bd25bd21-3a3c-4de3-94ea-86a7b6c327ba" // Substitua pelo ID real da URL do Suno
-            },
-            { 
-                titulo: "If You Didn’t Feel It", 
-                sunoId: "8afc66d1-fbac-4935-920f-f5867b0fdc6c" 
+                titulo: "Curitiba Nights", 
+                arquivo: "./assets/musicas/01-bre.mp3" // Substitua pelo ID real da URL do Suno
             }
         ]
     },
@@ -160,9 +120,9 @@ const PERSONAS_DATA = [
         videoDestaque: "./assets/videos/galileu.mp4",
         banner: "./assets/banners/galileu1.jpeg",
         musicas: [
-            { 
-                titulo: "O NOSSO LUGAR AO SOL", 
-                sunoId: "6069d22c-c76f-4c6a-b1e1-da5cc835b6b9" 
+             { 
+                titulo: "O Lamento do Viajante Estelar", 
+                arquivo: "./assets/musicas/01-gal.mp3" // Substitua pelo ID real da URL do Suno
             }
         ]
     },
@@ -173,16 +133,12 @@ const PERSONAS_DATA = [
         descricao: "Jean e Cloe são a dupla do gospel contemporâneo que une a força rasgada e apaixonada do vocal masculino com a doçura melismática e soul da voz feminina, tecendo duetos de adoração onde o violão acústico e a cadência R&B criam pontes entre a intimidade da oração e a celebração da fé.",
         avatar: "./assets/avatars/jeancloe.jpeg",
         avatar2: "./assets/avatars/jeancloe1.jpeg",
-        videoDestaque: "./assets/videos/jeancloe.mp4",
+        videoDestaque: "./assets/videos/jeanecloe.mp4",
         banner: "./assets/banners/jeancloe1.jpeg",
         musicas: [
-            { 
-                titulo: "I Will Not Fear", 
-                sunoId: "49c415d1-5797-4a4f-a581-5fa9d8487caa" 
-            },
-            { 
-                titulo: "Em nome do Senhor", 
-                sunoId: "376d00a9-54b6-43d6-b4c6-3cd70949830a" 
+               { 
+                titulo: "Em Nome do Senhor - Baseado em 1 Samuel 17:45", 
+                arquivo: "./assets/musicas/01-jec.mp3" // Substitua pelo ID real da URL do Suno
             }
         ]
     },
@@ -197,8 +153,8 @@ const PERSONAS_DATA = [
         banner: "./assets/banners/kryssenvale1.jpeg",
         musicas: [
             { 
-                titulo: "The Board", 
-                sunoId: "c4cc7e02-3239-4a51-b5d5-47af963adbcc" 
+                titulo: "", 
+                arquivo: "./assets/musicas/" // Substitua pelo ID real da URL do Suno
             }
         ]
     },
@@ -213,12 +169,12 @@ const PERSONAS_DATA = [
         banner: "./assets/banners/motomami1.jpeg",
         musicas: [
             { 
-                titulo: "Diálogo del Amor", 
-                sunoId: "69ab974b-6e6d-4245-861d-4bf59824f555" 
+                titulo: "Dangerous Game", 
+                arquivo: "./assets/musicas/01-mot.mp3" // Substitua pelo ID real da URL do Suno
             },
-             { 
-                titulo: "Una Noche en Río", 
-                sunoId: "83875617-d17c-4ba2-9dd1-05c86426616f" 
+            { 
+                titulo: "Diálogo del Amor", 
+                arquivo: "./assets/musicas/02-mot.mp3" // Substitua pelo ID real da URL do Suno
             }
         ]
     },
@@ -232,13 +188,9 @@ const PERSONAS_DATA = [
         videoDestaque: "./assets/videos/scott.mp4", // No futuro: "https://www.youtube.com/embed/..."
         banner: "./assets/banners/scott1.jpeg",
         musicas: [
-            { 
-                titulo: "Prose of the End", 
-                sunoId: "053e4b7b-2806-475f-9b16-3db65745cbb6" // Substitua pelo ID real da URL do Suno
-            },
-            { 
-                titulo: "Seconds Before the Fall", 
-                sunoId: "fd404a55-060b-4e7d-8162-2c22397f7512" 
+                    { 
+                titulo: "A locket in my chest", 
+                arquivo: "./assets/musicas/05-scot.mp3" // Substitua pelo ID real da URL do Suno
             }
         ]
     },
@@ -252,9 +204,13 @@ const PERSONAS_DATA = [
         videoDestaque: "./assets/videos/shine.mp4",
         banner: "./assets/banners/shine1.jpeg",
         musicas: [
-            { 
+             { 
                 titulo: "Aire", 
-                sunoId: "5e0998ac-043a-4ec8-b882-c32892ca87df" 
+                arquivo: "./assets/musicas/01-shi.mp3" // Substitua pelo ID real da URL do Suno
+            },
+                               { 
+                titulo: "Coração Naufragado", 
+                arquivo: "./assets/musicas/02-shi.mp3" // Substitua pelo ID real da URL do Suno
             }
         ]
     },
@@ -268,9 +224,9 @@ const PERSONAS_DATA = [
         videoDestaque: "./assets/videos/suttin.mp4",
         banner: "./assets/banners/suttlin1.jpeg",
         musicas: [
-            { 
-                titulo: "Ultima Morada", 
-                sunoId: "572a5861-6710-45c8-8c6f-f6aed3b52774" 
+              { 
+                titulo: "Die dunkle Seite des Mondes_suttin", 
+                arquivo: "./assets/musicas/01-sut.mp3" // Substitua pelo ID real da URL do Suno
             }
         ]
     },
@@ -285,21 +241,30 @@ const PERSONAS_DATA = [
         banner: "./assets/banners/veddin1.jpeg",
         musicas: [
             { 
-                titulo: "Weightless", 
-                sunoId: "01285da9-eacd-459a-8d2d-10ef2a2dbe2d" 
+                titulo: "Just Inhale", 
+                arquivo: "./assets/musicas/01-ved.mp3" // Substitua pelo ID real da URL do Suno
             },
-              { 
-                titulo: "Null Love Exception", 
-                sunoId: "2c358a1c-c50a-427c-9255-d64a145e7124" 
+            { 
+                titulo: "Return", 
+                arquivo: "./assets/musicas/02-ved.mp3" // Substitua pelo ID real da URL do Suno
             },
-              { 
-                titulo: "Sombras no Espelho", 
-                sunoId: "7d5b3ca2-cb92-4c06-8688-e3ee3a8f7707" 
-            },
-              { 
+            { 
                 titulo: "Worthy One", 
-                sunoId: "5333dc0b-0447-442d-9305-c6467a2ce9ec" 
+                arquivo: "./assets/musicas/03-ved.mp3" // Substitua pelo ID real da URL do Suno
+            },
+            { 
+                titulo: "Null Love Exception", 
+                arquivo: "./assets/musicas/04-ved.mp3" // Substitua pelo ID real da URL do Suno
+            },
+            { 
+                titulo: "Sombras no Espelho", 
+                arquivo: "./assets/musicas/05-ved.mp3" // Substitua pelo ID real da URL do Suno
+            },
+            { 
+                titulo: "Null Love Exception", 
+                arquivo: "./assets/musicas/04-ved.mp3" // Substitua pelo ID real da URL do Suno
             }
+
         ]
     }
 

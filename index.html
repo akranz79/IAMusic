@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SunoFlix | Personas & Tracks IA</title>
+    <title>SunoFlix | Performance & Design</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,14 +19,14 @@
         <div class="hero__overlay"></div>
         <div class="hero__contents">
             <h1 class="hero__title" id="heroTitle">Carregando...</h1>
-            <p class="hero__description" id="heroDesc">Sincronizando biblioteca de IA...</p>
+            <p class="hero__description" id="heroDesc">Sincronizando áudio nativo...</p>
         </div>
     </header>
 
     <main class="main-content">
         <section class="row">
             <h2 class="row__title">Últimos Lançamentos (Músicas)</h2>
-            <div class="row__posters" id="musicasRecentesRow" style="gap: 20px;">
+            <div class="row__posters" id="musicasRecentesRow">
                 </div>
         </section>
 
@@ -44,20 +44,11 @@
     <div id="personaModal" class="modal">
         <div class="modal__content">
             <span class="modal__close" id="closeModal">&times;</span>
-            <div id="modalBody">
-                </div>
+            <div id="modalBody"></div>
         </div>
     </div>
 
     <script src="data.js"></script>
     <script src="script.js"></script>
-    <script>
-        // Efeito visual na Navbar ao scrollar
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) nav.classList.add('nav__black');
-            else nav.classList.remove('nav__black');
-        });
-    </script>
 </body>
 </html>
