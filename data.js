@@ -60,6 +60,10 @@ const PERSONAS_DATA = [
             { 
                 titulo: "🎵 MARINA E OS BICHINHOS 🎵", 
                 arquivo: "./assets/musicas/01-fox.mp3" // Substitua pelo ID real da URL do Suno
+            },
+             { 
+                titulo: "🎵 Ultima morada 🎵", 
+                arquivo: "./assets/musicas/02-fox.mp3" // Substitua pelo ID real da URL do Suno
             }
         ]
     },
@@ -136,9 +140,13 @@ const PERSONAS_DATA = [
         videoDestaque: "./assets/videos/jeanecloe.mp4",
         banner: "./assets/banners/jeancloe1.jpeg",
         musicas: [
-               { 
+            { 
                 titulo: "Em Nome do Senhor - Baseado em 1 Samuel 17:45", 
                 arquivo: "./assets/musicas/01-jec.mp3" // Substitua pelo ID real da URL do Suno
+            },
+            { 
+                titulo: "Não Temerei", 
+                arquivo: "./assets/musicas/02-jec.mp3" // Substitua pelo ID real da URL do Suno
             }
         ]
     },
@@ -208,9 +216,21 @@ const PERSONAS_DATA = [
                 titulo: "Aire", 
                 arquivo: "./assets/musicas/01-shi.mp3" // Substitua pelo ID real da URL do Suno
             },
-                               { 
+            { 
                 titulo: "Coração Naufragado", 
                 arquivo: "./assets/musicas/02-shi.mp3" // Substitua pelo ID real da URL do Suno
+            },
+            { 
+                titulo: "Fuego lento", 
+                arquivo: "./assets/musicas/03-shi.mp3" // Substitua pelo ID real da URL do Suno
+            },
+             { 
+                titulo: "La Gitana", 
+                arquivo: "./assets/musicas/04-shi.mp3" // Substitua pelo ID real da URL do Suno
+            },
+            { 
+                titulo: "Yo no voy a llorar", 
+                arquivo: "./assets/musicas/05-shi.mp3" // Substitua pelo ID real da URL do Suno
             }
         ]
     },
