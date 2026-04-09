@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SunoFlix | Performance & Design</title>
+    <title>SunoFlix | Galeria de Personas IA</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -24,31 +24,48 @@
     </header>
 
     <main class="main-content">
+        
         <section class="row">
-            <h2 class="row__title">Últimos Lançamentos (Músicas)</h2>
-            <div class="row__posters" id="musicasRecentesRow">
-                </div>
+            <h2 class="row__title">Personagens Atualizados</h2>
+            <div class="row__navigation">
+                <button class="nav-btn prev" id="prevBtn" aria-label="Anterior">&#10094;</button>
+                
+                <div class="row__posters" id="personasRow">
+                    </div>
+                
+                <button class="nav-btn next" id="nextBtn" aria-label="Próximo">&#10095;</button>
+            </div>
         </section>
 
         <section class="row">
-            <h2 class="row__title">Meus Personas</h2>
-            <div class="row__navigation">
-                <button class="nav-btn prev" id="prevBtn">&#10094;</button>
-                <div class="row__posters" id="personasRow">
-                    </div>
-                <button class="nav-btn next" id="nextBtn">&#10095;</button>
-            </div>
+            <h2 class="row__title">Últimas Atualizações Musicais</h2>
+            <div id="musicasRecentesRow" class="musicas-feed-container">
+                </div>
         </section>
+
     </main>
 
     <div id="personaModal" class="modal">
         <div class="modal__content">
             <span class="modal__close" id="closeModal">&times;</span>
-            <div id="modalBody"></div>
+            <div id="modalBody">
+                </div>
         </div>
     </div>
 
     <script src="data.js"></script>
     <script src="script.js"></script>
+
+    <script>
+        // Efeito de fundo na Navbar ao realizar o scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('nav__black');
+            } else {
+                nav.classList.remove('nav__black');
+            }
+        });
+    </script>
 </body>
 </html>

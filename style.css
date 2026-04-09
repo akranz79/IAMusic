@@ -1,5 +1,10 @@
-/* RESET & VARIÁVEIS */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* RESET E VARIÁVEIS TÉCNICAS */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
 :root {
     --main-bg: #111;
     --netflix-red: #e50914;
@@ -7,6 +12,7 @@
     --card-width: 200px;
     --gap: 20px;
 }
+
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background-color: var(--main-bg);
@@ -14,49 +20,300 @@ body {
     overflow-x: hidden;
 }
 
-/* NAVBAR */
-.nav { position: fixed; top: 0; width: 100%; padding: 20px 4%; z-index: 100; display: flex; justify-content: flex-end; transition: 0.5s; }
-.nav__black { background-color: rgba(0,0,0,0.9); }
-.nav__logo { color: var(--netflix-red); font-weight: bold; font-size: 1.5rem; letter-spacing: 2px; }
+/* NAVBAR (LOGO À DIREITA) */
+.nav { 
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    padding: 20px 4%; 
+    z-index: 100; 
+    display: flex; 
+    justify-content: flex-end; 
+    transition: 0.5s; 
+}
 
-/* HERO */
-.hero { position: relative; height: 75vh; display: flex; align-items: center; padding: 0 4%; background: #000; overflow: hidden; }
-.hero__video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
-.hero__overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: linear-gradient(to right, rgba(0,0,0,0.9), transparent), linear-gradient(to top, #111, transparent); }
-.hero__contents { position: relative; z-index: 2; max-width: 600px; }
-.hero__title { font-size: 3rem; margin-bottom: 10px; transition: 0.5s; }
+.nav__black { 
+    background-color: rgba(0, 0, 0, 0.9); 
+}
 
-/* CARROSSEL ROWS */
-.row { margin-top: -30px; position: relative; z-index: 10; padding-bottom: 40px; }
-.row__title { font-size: 1.3rem; margin-left: 4%; margin-bottom: 15px; }
-.row__navigation { position: relative; display: flex; align-items: center; }
-.row__posters { display: flex; overflow-x: auto; padding: 20px 4%; scrollbar-width: none; gap: var(--gap); scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
-.row__posters::-webkit-scrollbar { display: none; }
+.nav__logo { 
+    color: var(--netflix-red); 
+    font-weight: bold; 
+    font-size: 1.5rem; 
+    letter-spacing: 2px; 
+}
 
-.row__poster { width: var(--card-width); aspect-ratio: 9/16; object-fit: cover; border-radius: 6px; cursor: pointer; transition: 0.4s; flex-shrink: 0; }
-.row__poster:hover { transform: scale(1.08); z-index: 20; }
+/* HERO SECTION */
+.hero { 
+    position: relative; 
+    height: 75vh; 
+    display: flex; 
+    align-items: center; 
+    padding: 0 4%; 
+    background: #000; 
+    overflow: hidden; 
+}
 
-.nav-btn { position: absolute; width: 50px; height: 100%; background: rgba(0,0,0,0.5); color: #fff; border: none; cursor: pointer; z-index: 30; font-size: 2rem; }
-.prev { left: 0; } .next { right: 0; }
+.hero__video { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    z-index: 0; 
+}
 
-/* AUDIO CARDS (HOME & MODAL) */
-.audio-card { width: 300px; flex-shrink: 0; background: #1f1f1f; padding: 15px; border-radius: 12px; border-left: 4px solid var(--netflix-red); }
-audio { width: 100%; height: 32px; filter: invert(100%) hue-rotate(180deg) brightness(1.5); margin-top: 10px; }
+.hero__overlay { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    z-index: 1; 
+    background: linear-gradient(to right, rgba(0,0,0,0.9), transparent), 
+                linear-gradient(to top, #111, transparent); 
+}
 
-/* MODAL */
-.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 200; overflow-y: auto; }
-.modal__content { background: #181818; width: 95%; max-width: 850px; margin: 30px auto; padding: 30px; border-radius: 10px; position: relative; }
-.modal__close { position: absolute; top: 15px; right: 20px; font-size: 2.5rem; cursor: pointer; color: #fff; z-index: 10; }
-.modal__profile-header { display: flex; align-items: center; gap: 30px; margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 30px; }
-.modal__profile-avatar { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid var(--netflix-red); flex-shrink: 0; }
-.modal__profile-name { font-size: 2.5rem; margin-bottom: 5px; }
-.modal__video-btn { padding: 10px 20px; background: #fff; color: #000; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; margin-top: 10px; }
+.hero__contents { 
+    position: relative; 
+    z-index: 2; 
+    max-width: 600px; 
+}
 
-/* MEDIA QUERIES */
+.hero__title { 
+    font-size: 3rem; 
+    margin-bottom: 10px; 
+    transition: 0.5s; 
+}
+
+.hero__description {
+    font-size: 1.1rem;
+    color: #ccc;
+    line-height: 1.4;
+}
+
+/* CARROSSEL DE PERSONAGENS (HORIZONTAL) */
+.row { 
+    margin-top: -30px; 
+    position: relative; 
+    z-index: 10; 
+    padding-bottom: 40px; 
+}
+
+.row__title { 
+    font-size: 1.3rem; 
+    margin-left: 4%; 
+    margin-bottom: 15px; 
+}
+
+.row__navigation { 
+    position: relative; 
+    display: flex; 
+    align-items: center; 
+}
+
+.row__posters { 
+    display: flex; 
+    overflow-x: auto; 
+    padding: 20px 4%; 
+    scrollbar-width: none; 
+    gap: var(--gap); 
+    scroll-behavior: smooth; 
+    -webkit-overflow-scrolling: touch; 
+}
+
+.row__posters::-webkit-scrollbar { 
+    display: none; 
+}
+
+.row__poster { 
+    width: var(--card-width); 
+    aspect-ratio: 9/16; 
+    object-fit: cover; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    transition: 0.4s; 
+    flex-shrink: 0; 
+}
+
+.row__poster:hover { 
+    transform: scale(1.08); 
+    z-index: 20; 
+}
+
+.nav-btn { 
+    position: absolute; 
+    width: 50px; 
+    height: 100%; 
+    background: rgba(0,0,0,0.5); 
+    color: #fff; 
+    border: none; 
+    cursor: pointer; 
+    z-index: 30; 
+    font-size: 2rem; 
+}
+
+.prev { left: 0; } 
+.next { right: 0; }
+
+/* LISTA VERTICAL DE ATUALIZAÇÕES MUSICAIS */
+.musicas-feed-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 4%;
+}
+
+.musica-item-vertical {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px 20px;
+    border-radius: 8px;
+    gap: 20px;
+    transition: background 0.3s;
+}
+
+.musica-item-vertical:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.musica-item__avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--netflix-red);
+    flex-shrink: 0;
+}
+
+.musica-item__info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+
+.musica-item__text {
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+}
+
+.musica-item__persona {
+    color: var(--netflix-red);
+    font-weight: bold;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.musica-item__titulo {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px;
+}
+
+/* ESTILIZAÇÃO DO PLAYER DE ÁUDIO NATUAL */
+audio { 
+    width: 100%; 
+    height: 32px; 
+    filter: invert(100%) hue-rotate(180deg) brightness(1.5); 
+    max-width: 400px;
+}
+
+/* MODAL DE PERFIL */
+.modal { 
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.95); 
+    z-index: 200; 
+    overflow-y: auto; 
+}
+
+.modal__content { 
+    background: #181818; 
+    width: 95%; 
+    max-width: 850px; 
+    margin: 30px auto; 
+    padding: 30px; 
+    border-radius: 10px; 
+    position: relative; 
+}
+
+.modal__close { 
+    position: absolute; 
+    top: 15px; 
+    right: 20px; 
+    font-size: 2.5rem; 
+    cursor: pointer; 
+    color: #fff; 
+    z-index: 10; 
+}
+
+.modal__profile-header { 
+    display: flex; 
+    align-items: center; 
+    gap: 30px; 
+    margin-bottom: 30px; 
+    border-bottom: 1px solid #333; 
+    padding-bottom: 30px; 
+}
+
+.modal__profile-avatar { 
+    width: 150px; 
+    height: 150px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 3px solid var(--netflix-red); 
+    flex-shrink: 0; 
+}
+
+.modal__profile-name { 
+    font-size: 2.5rem; 
+    margin-bottom: 5px; 
+}
+
+.modal__video-btn { 
+    padding: 10px 20px; 
+    background: #fff; 
+    color: #000; 
+    border: none; 
+    border-radius: 4px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    margin-top: 10px; 
+}
+
+/* MEDIA QUERIES PARA RESPONSIVIDADE */
 @media (max-width: 768px) {
     :root { --card-width: 150px; }
     .hero__title { font-size: 2.2rem; }
-    .nav-btn { display: none; } /* Scroll no dedo no mobile */
+    .nav-btn { display: none; } /* Scroll via touch no mobile */
     .modal__profile-header { flex-direction: column; text-align: center; gap: 15px; }
     .modal__profile-avatar { width: 120px; height: 120px; }
+    
+    .musica-item-vertical {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .musica-item__info {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    .musica-item__titulo {
+        max-width: 100%;
+    }
 }
