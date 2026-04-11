@@ -14,11 +14,17 @@ const PERSONAS_DATA = [
         videoDestaque: "./assets/videos/amylin.mp4",
         banner: "./assets/banners/amylin1.jpeg",
         musicas: [
-            { 
-                titulo: "Our Song", 
-                sunoId: "",
-                data: "2026-04-06" // Baseado no padrão de upload das outras faixas 01
-            }
+            { titulo: "🎵 01/11 The Tome and the Thornbush  🎵", arquivo: "./assets/musicas/01-amy.mp3", data: "2026-04-06" },
+            { titulo: "🎵 02/11 The Lord and the Flames     🎵", arquivo: "./assets/musicas/02-amy.mp3", data: "2026-04-06" },
+            { titulo: "🎵 03/11 The Crows' Judgement        🎵", arquivo: "./assets/musicas/03-amy.mp3", data: "2026-04-05" },
+            { titulo: "🎵 04/11 The Dungeon and the Viper   🎵", arquivo: "./assets/musicas/04-amy.mp3", data: "2026-04-05" },
+            { titulo: "🎵 05/11 The Dance of Shadows        🎵", arquivo: "./assets/musicas/05-amy.mp3", data: "2026-04-05" },
+            { titulo: "🎵 06/11 The Secrecy and the Whisper 🎵", arquivo: "./assets/musicas/06-amy.mp3", data: "2026-04-06" },
+            { titulo: "🎵 07/11 Despair and Invocation      🎵", arquivo: "./assets/musicas/07-amy.mp3", data: "2026-04-06" },
+            { titulo: "🎵 08/11 The Nightmare Incarnate     🎵", arquivo: "./assets/musicas/08-amy.mp3", data: "2026-04-05" },
+            { titulo: "🎵 09/11 The Price of the Storm      🎵", arquivo: "./assets/musicas/09-amy.mp3", data: "2026-04-05" },
+            { titulo: "🎵 10/11 The Last Whisper of Onaria  🎵", arquivo: "./assets/musicas/10-amy.mp3", data: "2026-04-05" },
+            { titulo: "🎵 11/11 The Elder's Circle          🎵", arquivo: "./assets/musicas/11-amy.mp3", data: "2026-04-10" }
         ]
     },
     {
@@ -31,11 +37,16 @@ const PERSONAS_DATA = [
         videoDestaque: "./assets/videos/natali.mp4",
         banner: "./assets/banners/natali1.jpeg",
         musicas: [
-            { titulo: "Insensatez", arquivo: "./assets/musicas/01-nat.mp3", data: "2026-04-06" },
-            { titulo: "Hoy te borro", arquivo: "./assets/musicas/02-nat.mp3", data: "2026-04-06" },
-            { titulo: "🎵 Noche de verano 🎵", arquivo: "./assets/musicas/03-nat.mp3", data: "2026-04-05" },
-            { titulo: "🎵 Lo Que No Fue 🎵", arquivo: "./assets/musicas/04-nat.mp3", data: "2026-04-05" },
-            { titulo: "🎵 Montanha e Primavera 🎵", arquivo: "./assets/musicas/05-nat.mp3", data: "2026-04-05" }
+            { titulo: "🎵 Insensatez           🎵", arquivo: "./assets/musicas/01-nat.mp3", data: "2026-04-06" },
+            { titulo: "🎵 Hoy te borro         🎵", arquivo: "./assets/musicas/02-nat.mp3", data: "2026-04-06" },
+            { titulo: "🎵 Noche de verano      🎵", arquivo: "./assets/musicas/03-nat.mp3", data: "2026-04-05" },
+            { titulo: "🎵 Lo Que No Fue        🎵", arquivo: "./assets/musicas/04-nat.mp3", data: "2026-04-05" },
+            { titulo: "🎵  🎵", arquivo: "./assets/musicas/05-nat.mp3", data: "2026-04-05" },
+            { titulo: "🎵  🎵", arquivo: "./assets/musicas/06-nat.mp3", data: "2026-04-05" },
+            { titulo: "🎵  🎵", arquivo: "./assets/musicas/07-nat.mp3", data: "2026-04-05" },
+            { titulo: "🎵  🎵", arquivo: "./assets/musicas/08-nat.mp3", data: "2026-04-05" },
+            { titulo: "🎵  🎵", arquivo: "./assets/musicas/09-nat.mp3", data: "2026-04-05" },
+            { titulo: "🎵  🎵", arquivo: "./assets/musicas/10-nat.mp3", data: "2026-04-05" }
         ]
     },
     {
@@ -48,9 +59,16 @@ const PERSONAS_DATA = [
         videoDestaque: "./assets/videos/foxmine.mp4",
         banner: "./assets/banners/foxmine1.jpeg",
         musicas: [
-            { titulo: "🎵 MARINA E OS BICHINHOS 🎵", arquivo: "./assets/musicas/01-fox.mp3", data: "2026-04-06" },
-            { titulo: "🎵 Ultima morada 🎵", arquivo: "./assets/musicas/02-fox.mp3", data: "2026-04-05" },
-            { titulo: "🎵 Menina Serena 🎵", arquivo: "./assets/musicas/03-fox.mp3", data: "2026-04-05" }
+            { titulo: "🎵 Marina e os Bichinhos 🎵", arquivo: "./assets/musicas/01-fox.mp3", data: "2026-04-06" },
+            { titulo: "🎵          🎵", arquivo: "./assets/musicas/02-fox.mp3", data: "2026-04-05" },
+            { titulo: "🎵          🎵", arquivo: "./assets/musicas/03-fox.mp3", data: "2026-04-05" },
+            { titulo: "🎵          🎵", arquivo: "./assets/musicas/04-fox.mp3", data: "2026-04-05" },
+            { titulo: "🎵          🎵", arquivo: "./assets/musicas/05-fox.mp3", data: "2026-04-05" },
+            { titulo: "🎵          🎵", arquivo: "./assets/musicas/06-fox.mp3", data: "2026-04-05" },
+            { titulo: "🎵          🎵", arquivo: "./assets/musicas/07-fox.mp3", data: "2026-04-05" },
+            { titulo: "🎵          🎵", arquivo: "./assets/musicas/08-fox.mp3", data: "2026-04-05" },
+            { titulo: "🎵          🎵", arquivo: "./assets/musicas/09-fox.mp3", data: "2026-04-05" },
+            { titulo: "🎵          🎵", arquivo: "./assets/musicas/10-fox.mp3", data: "2026-04-05" }
         ]
     },
     {
@@ -63,7 +81,16 @@ const PERSONAS_DATA = [
         videoDestaque: "./assets/videos/badyg.mp4",
         banner: "./assets/banners/badyg1.jpeg",
         musicas: [
-            { titulo: "Baila en la Luna", arquivo: "./assets/musicas/01-bad.mp3", data: "2026-04-06" }
+            { titulo: "🎵 Baila en la Luna ", arquivo: "./assets/musicas/01-bad.mp3", data: "2026-04-06" },
+            { titulo: "🎵 ", arquivo: "./assets/musicas/02-bad.mp3", data: "2026-04-06" },
+            { titulo: "🎵 ", arquivo: "./assets/musicas/03-bad.mp3", data: "2026-04-06" },
+            { titulo: "🎵 ", arquivo: "./assets/musicas/04-bad.mp3", data: "2026-04-06" },
+            { titulo: "🎵 ", arquivo: "./assets/musicas/05-bad.mp3", data: "2026-04-06" },
+            { titulo: "🎵 ", arquivo: "./assets/musicas/06-bad.mp3", data: "2026-04-06" },
+            { titulo: "🎵 ", arquivo: "./assets/musicas/07-bad.mp3", data: "2026-04-06" },
+            { titulo: "🎵 ", arquivo: "./assets/musicas/08-bad.mp3", data: "2026-04-06" },
+            { titulo: "🎵 ", arquivo: "./assets/musicas/09-bad.mp3", data: "2026-04-06" },
+            { titulo: "🎵 ", arquivo: "./assets/musicas/10-bad.mp3", data: "2026-04-06" }
         ]
     },
     {
@@ -76,7 +103,17 @@ const PERSONAS_DATA = [
         videoDestaque: "./assets/videos/bonin.mp4",
         banner: "./assets/banners/bonin1.jpeg",
         musicas: [
-            { titulo: "Mountains and Spring", arquivo: "./assets/musicas/01-bon.mp3", data: "2026-04-05" }
+            { titulo: "🎵Mountains and Spring", arquivo: "./assets/musicas/01-bon.mp3", data: "2026-04-05" },
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/02-bon.mp3", data: "2026-04-05" },
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/03-bon.mp3", data: "2026-04-05" },
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/04-bon.mp3", data: "2026-04-05" },
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/05-bon.mp3", data: "2026-04-05" },
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/06-bon.mp3", data: "2026-04-05" },
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/07-bon.mp3", data: "2026-04-05" },
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/08-bon.mp3", data: "2026-04-05" },
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/09-bon.mp3", data: "2026-04-05" },
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/10-bon.mp3", data: "2026-04-05" },
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/11-bon.mp3", data: "2026-04-05" }
         ]
     },
     {
@@ -89,8 +126,16 @@ const PERSONAS_DATA = [
         videoDestaque: "./assets/videos/brett.mp4",
         banner: "./assets/banners/brett1.jpeg",
         musicas: [
-            { titulo: "Curitiba Nights", arquivo: "./assets/musicas/01-bre.mp3", data: "2026-04-06" },
-            { titulo: "🎵 Refuge of the Most High 🎵", arquivo: "./assets/musicas/02-bre.mp3", data: "2026-04-05" }
+            { titulo: "🎵 Curitiba Nights                    🎵", arquivo: "./assets/musicas/01-bre.mp3", data: "2026-04-06" },
+            { titulo: "🎵 Refuge of the Most High            🎵", arquivo: "./assets/musicas/02-bre.mp3", data: "2026-04-05" },
+            { titulo: "🎵 If You Didn’t Feel It (Remastered) 🎵", arquivo: "./assets/musicas/03-bre.mp3", data: "2026-04-05" },
+            { titulo: "🎵                🎵", arquivo: "./assets/musicas/04-bre.mp3", data: "2026-04-10" },
+            { titulo: "🎵                🎵", arquivo: "./assets/musicas/05-bre.mp3", data: "2026-04-10" },
+            { titulo: "🎵                🎵", arquivo: "./assets/musicas/06-bre.mp3", data: "2026-04-10" },
+            { titulo: "🎵                🎵", arquivo: "./assets/musicas/07-bre.mp3", data: "2026-04-10" },
+            { titulo: "🎵                🎵", arquivo: "./assets/musicas/08-bre.mp3", data: "2026-04-10" },
+            { titulo: "🎵                🎵", arquivo: "./assets/musicas/09-bre.mp3", data: "2026-04-10" },
+            { titulo: "🎵                🎵", arquivo: "./assets/musicas/10-bre.mp3", data: "2026-04-10" }
         ]
     },
     {
@@ -103,7 +148,17 @@ const PERSONAS_DATA = [
         videoDestaque: "./assets/videos/galileu.mp4",
         banner: "./assets/banners/galileu1.jpeg",
         musicas: [
-             { titulo: "O Lamento do Viajante Estelar", arquivo: "./assets/musicas/01-gal.mp3", data: "2026-04-06" }
+             { titulo: "🎵 O Lamento do Viajante Estelar", arquivo: "./assets/musicas/01-gal.mp3", data: "2026-04-06" },
+             { titulo: "🎵 Para Sempre (Salmo 136)", arquivo: "./assets/musicas/02-gal.mp3", data: "2026-04-06" },
+             { titulo: "🎵 O Peso do Bem (Isaías 1:17)", arquivo: "./assets/musicas/03-gal.mp3", data: "2026-04-06" },
+             { titulo: "🎵 Vento e Fogo (Atos 2:1-4)", arquivo: "./assets/musicas/04-gal.mp3", data: "2026-04-10" },
+             { titulo: "🎵 ", arquivo: "./assets/musicas/05-gal.mp3", data: "2026-04-06" },
+             { titulo: "🎵 ", arquivo: "./assets/musicas/06-gal.mp3", data: "2026-04-06" },
+             { titulo: "🎵 ", arquivo: "./assets/musicas/07-gal.mp3", data: "2026-04-06" },
+             { titulo: "🎵 ", arquivo: "./assets/musicas/08-gal.mp3", data: "2026-04-06" },
+             { titulo: "🎵 ", arquivo: "./assets/musicas/09-gal.mp3", data: "2026-04-06" },
+             { titulo: "🎵 ", arquivo: "./assets/musicas/10-gal.mp3", data: "2026-04-06" }
+             
         ]
     },
     {
@@ -116,11 +171,17 @@ const PERSONAS_DATA = [
         videoDestaque: "./assets/videos/jeanecloe.mp4",
         banner: "./assets/banners/jeancloe1.jpeg",
         musicas: [
-            { titulo: "Em Nome do Senhor", arquivo: "./assets/musicas/01-jec.mp3", data: "2026-04-06" },
-            { titulo: "Não Temerei", arquivo: "./assets/musicas/02-jec.mp3", data: "2026-04-05" },
-            { titulo: "🎵 Seek First Your Kingdom 🎵", arquivo: "./assets/musicas/03-jec.mp3", data: "2026-04-05" },
-            { titulo: "🎵 I Will Not Fear 🎵", arquivo: "./assets/musicas/04-jec.mp3", data: "2026-04-05" },
-            { titulo: "🎵 Reflexos de Mim (Versão Dueto) 🎵", arquivo: "./assets/musicas/05-jec.mp3", data: "2026-04-05" }
+            { titulo: "🎵Em Nome do Senhor               🎵", arquivo: "./assets/musicas/01-jec.mp3", data: "2026-04-06" },
+            { titulo: "🎵Não Temerei                     🎵", arquivo: "./assets/musicas/02-jec.mp3", data: "2026-04-05" },
+            { titulo: "🎵 Seek First Your Kingdom        🎵", arquivo: "./assets/musicas/03-jec.mp3", data: "2026-04-05" },
+            { titulo: "🎵 I Will Not Fear                🎵", arquivo: "./assets/musicas/04-jec.mp3", data: "2026-04-05" },
+            { titulo: "🎵 Reflexos de Mim (Versão Dueto) 🎵", arquivo: "./assets/musicas/05-jec.mp3", data: "2026-04-05" },
+            { titulo: "🎵            🎵", arquivo: "./assets/musicas/06-jec.mp3", data: "2026-04-05" },
+            { titulo: "🎵            🎵", arquivo: "./assets/musicas/07-jec.mp3", data: "2026-04-05" },
+            { titulo: "🎵            🎵", arquivo: "./assets/musicas/08-jec.mp3", data: "2026-04-05" },
+            { titulo: "🎵            🎵", arquivo: "./assets/musicas/09-jec.mp3", data: "2026-04-05" },
+            { titulo: "🎵            🎵", arquivo: "./assets/musicas/10-jec.mp3", data: "2026-04-05" },
+            { titulo: "🎵            🎵", arquivo: "./assets/musicas/11-jec.mp3", data: "2026-04-05" }
         ]
     },
     {
@@ -133,9 +194,17 @@ const PERSONAS_DATA = [
         videoDestaque: "./assets/videos/motomami.mp4",
         banner: "./assets/banners/motomami1.jpeg",
         musicas: [
-            { titulo: "Dangerous Game", arquivo: "./assets/musicas/01-mot.mp3", data: "2026-04-06" },
-            { titulo: "Diálogo del Amor", arquivo: "./assets/musicas/02-mot.mp3", data: "2026-04-06" },
-            { titulo: "🎵 Una Noche en Río 🎵", arquivo: "./assets/musicas/03-mot.mp3", data: "2026-04-05" }
+            { titulo: "🎵 Dangerous Game", arquivo: "./assets/musicas/01-mot.mp3", data: "2026-04-06" },
+            { titulo: "🎵 Diálogo del Amor", arquivo: "./assets/musicas/02-mot.mp3", data: "2026-04-06" },
+            { titulo: "🎵 Una Noche en Río 🎵", arquivo: "./assets/musicas/03-mot.mp3", data: "2026-04-05" },
+            { titulo: "🎵  🎵", arquivo: "./assets/musicas/04-mot.mp3", data: "2026-04-05" },
+            { titulo: "🎵  🎵", arquivo: "./assets/musicas/05-mot.mp3", data: "2026-04-05" },
+            { titulo: "🎵  🎵", arquivo: "./assets/musicas/06-mot.mp3", data: "2026-04-05" },
+            { titulo: "🎵  🎵", arquivo: "./assets/musicas/07-mot.mp3", data: "2026-04-05" },
+            { titulo: "🎵  🎵", arquivo: "./assets/musicas/08-mot.mp3", data: "2026-04-05" },
+            { titulo: "🎵  🎵", arquivo: "./assets/musicas/09-mot.mp3", data: "2026-04-05" },
+            { titulo: "🎵  🎵", arquivo: "./assets/musicas/10-mot.mp3", data: "2026-04-05" },
+            { titulo: "🎵  🎵", arquivo: "./assets/musicas/11-mot.mp3", data: "2026-04-05" }
         ]
     },
     {
@@ -148,7 +217,16 @@ const PERSONAS_DATA = [
         videoDestaque: "./assets/videos/scott.mp4",
         banner: "./assets/banners/scott1.jpeg",
         musicas: [
-            { titulo: "A locket in my chest", arquivo: "./assets/musicas/05-scot.mp3", data: "2026-04-06" }
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/01-scot.mp3", data: "2026-04-06" },
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/02-scot.mp3", data: "2026-04-06" },
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/03-scot.mp3", data: "2026-04-06" },
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/04-scot.mp3", data: "2026-04-06" },
+            { titulo: "🎵 A locket in my chest 🎵", arquivo: "./assets/musicas/05-scot.mp3", data: "2026-04-06" },
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/06-scot.mp3", data: "2026-04-06" },
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/07-scot.mp3", data: "2026-04-06" },
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/08-scot.mp3", data: "2026-04-06" },
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/09-scot.mp3", data: "2026-04-06" },
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/10-scot.mp3", data: "2026-04-06" }
         ]
     },
     {
@@ -161,11 +239,16 @@ const PERSONAS_DATA = [
         videoDestaque: "./assets/videos/shine.mp4",
         banner: "./assets/banners/shine1.jpeg",
         musicas: [
-            { titulo: "Aire", arquivo: "./assets/musicas/01-shi.mp3", data: "2026-04-06" },
-            { titulo: "Coração Naufragado", arquivo: "./assets/musicas/02-shi.mp3", data: "2026-04-06" },
-            { titulo: "Fuego lento", arquivo: "./assets/musicas/03-shi.mp3", data: "2026-04-05" },
-            { titulo: "La Gitana", arquivo: "./assets/musicas/04-shi.mp3", data: "2026-04-05" },
-            { titulo: "Yo no voy a llorar", arquivo: "./assets/musicas/05-shi.mp3", data: "2026-04-08" }
+            { titulo: "🎵Aire               🎵", arquivo: "./assets/musicas/01-shi.mp3", data: "2026-04-06" },
+            { titulo: "🎵Coração Naufragado 🎵", arquivo: "./assets/musicas/02-shi.mp3", data: "2026-04-06" },
+            { titulo: "🎵Fuego lento        🎵", arquivo: "./assets/musicas/03-shi.mp3", data: "2026-04-05" },
+            { titulo: "🎵La Gitana          🎵", arquivo: "./assets/musicas/04-shi.mp3", data: "2026-04-05" },
+            { titulo: "🎵Yo no voy a llorar 🎵", arquivo: "./assets/musicas/05-shi.mp3", data: "2026-04-08" },
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/06-shi.mp3", data: "2026-04-08" },
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/07-shi.mp3", data: "2026-04-08" },
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/08-shi.mp3", data: "2026-04-08" },
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/09-shi.mp3", data: "2026-04-08" },
+            { titulo: "🎵 🎵", arquivo: "./assets/musicas/10-shi.mp3", data: "2026-04-08" }
         ]
     },
     {
@@ -178,12 +261,17 @@ const PERSONAS_DATA = [
         videoDestaque: "./assets/videos/suttin.mp4",
         banner: "./assets/banners/suttlin1.jpeg",
         musicas: [
-            { titulo: "Die dunkle Seite des Mondes_suttin", arquivo: "./assets/musicas/01-sut.mp3", data: "2026-04-06" },
-            { titulo: "🎵 The Dark Side of the Moon 🎵", arquivo: "./assets/musicas/02-sut.mp3", data: "2026-04-05" }
-        ]
-    },
-    {
-        id: 14,
+            { titulo: "🎵 Die dunkle Seite des Mondes 🎵", arquivo: "./assets/musicas/01-sut.mp3", data: "2026-04-06" },
+            { titulo: "🎵 The Dark Side of the Moon   🎵", arquivo: "./assets/musicas/02-sut.mp3", data: "2026-04-05" },
+            { titulo: "🎵  🎵", arquivo: "./assets/musicas/03-sut.mp3", data: "2026-04-05" },
+            { titulo: "🎵  🎵", arquivo: "./assets/musicas/04-sut.mp3", data: "2026-04-05" },
+            { titulo: "🎵  🎵", arquivo: "./assets/musicas/05-sut.mp3", data: "2026-04-05" },
+            { titulo: "🎵  🎵", arquivo: "./assets/musicas/06-sut.mp3", data: "2026-04-05" },
+            { titulo: "🎵  🎵", arquivo: "./assets/musicas/07-sut.mp3", data: "2026-04-05" },
+            { titulo: "🎵  🎵", arquivo: "./assets/musicas/08-sut.mp3", data: "2026-04-05" },
+            { titulo: "🎵  🎵", arquivo: "./assets/musicas/09-sut.mp3", data: "2026-04-05" },
+            { titulo: "🎵  🎵", arquivo: "./assets/musicas/10-sut.mp3", data: "2026-04-05" }
+        ] 14,
         nome: "Veddin",
         categoria: "Rock ballad, grunge anos 90, folk, blues",
         descricao: "Cantor barítono de voz profunda, levemente rouca e altamente expressiva.",
@@ -192,11 +280,16 @@ const PERSONAS_DATA = [
         videoDestaque: "./assets/videos/veddin.mp4",
         banner: "./assets/banners/veddin1.jpeg",
         musicas: [
-            { titulo: "Just Inhale", arquivo: "./assets/musicas/01-ved.mp3", data: "2026-04-06" },
-            { titulo: "Return", arquivo: "./assets/musicas/02-ved.mp3", data: "2026-04-06" },
-            { titulo: "Worthy One", arquivo: "./assets/musicas/03-ved.mp3", data: "2026-04-06" },
-            { titulo: "Null Love Exception", arquivo: "./assets/musicas/04-ved.mp3", data: "2026-04-06" },
-            { titulo: "Sombras no Espelho", arquivo: "./assets/musicas/05-ved.mp3", data: "2026-04-06" }
+            { titulo: "🎵 Just Inhale             🎵", arquivo: "./assets/musicas/01-ved.mp3", data: "2026-04-06" },
+            { titulo: "🎵 Return                  🎵", arquivo: "./assets/musicas/02-ved.mp3", data: "2026-04-06" },
+            { titulo: "🎵 Worthy One              🎵", arquivo: "./assets/musicas/03-ved.mp3", data: "2026-04-06" },
+            { titulo: "🎵 Null Love Exception     🎵", arquivo: "./assets/musicas/04-ved.mp3", data: "2026-04-06" },
+            { titulo: "🎵 Sombras no Espelho      🎵", arquivo: "./assets/musicas/05-ved.mp3", data: "2026-04-06" },
+            { titulo: "🎵 Jonathan                🎵", arquivo: "./assets/musicas/06-ved.mp3", data: "2026-04-06" },
+            { titulo: "🎵 Weightless              🎵", arquivo: "./assets/musicas/07-ved.mp3", data: "2026-04-06" },
+            { titulo: "🎵 The Anchor of Your Gaze 🎵", arquivo: "./assets/musicas/08-ved.mp3", data: "2026-04-06" },
+            { titulo: "🎵 Weightless              🎵", arquivo: "./assets/musicas/09-ved.mp3", data: "2026-04-06" },
+            { titulo: "🎵 Weightless              🎵", arquivo: "./assets/musicas/10-ved.mp3", data: "2026-04-06" }
         ]
     }
 ];

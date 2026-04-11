@@ -167,4 +167,14 @@ document.addEventListener('DOMContentLoaded', () => {
     closeModal.onclick = () => { modal.style.display = 'none'; document.body.style.overflow = 'auto'; modalBody.innerHTML = ''; };
     heroVideo.onended = nextHero;
     window.onclick = (e) => { if(e.target == modal) closeModal.onclick(); };
+
+    // Adiciona um ouvinte de evento global para pausar outras músicas quando uma nova começa a tocar
+    document.addEventListener('play', function(event) {
+        const audioElements = document.querySelectorAll('audio');
+        audioElements.forEach(audio => {
+            if (audio !== event.target) {
+                audio.pause();
+            }
+        });
+    }, true); // O 'true' indica que o evento será capturado na fase de captura
 });
