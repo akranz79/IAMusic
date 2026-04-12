@@ -88,7 +88,6 @@ function scrollToPersona(index) {
 function updateHero(persona) {
     if (!persona) return;
     document.getElementById('heroTitle').innerText = persona.nome;
-    document.getElementById('heroDesc').innerText = persona.descricao;
     heroVideo.pause();
     heroVideo.poster = persona.banner || persona.avatar;
     if (persona.videoDestaque) {
